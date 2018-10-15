@@ -1,3 +1,41 @@
+/* NAV */
+
+ul.nav {
+	background-color: #e1eeeb;
+}
+
+li.nav-item {
+	padding: 8px 16px;
+	color: #477673;	
+	font-family: "Century Gothic", "Bell MT", "Bodoni MT", "Times New Roman", Georgia, sans serif;
+	text-transform: uppercase;
+}
+
+li.nav-item:hover {
+	background-color: #fff;
+}
+
+/* CONTENT */
+
+h1 {
+	font-family: "Century Gothic", "Bell MT", "Bodoni MT", "Times New Roman", Georgia, sans serif;
+	color: #222629;
+}
+
+/* FOOTER */
+
+footer {
+	display: block;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 24px;
+	background-color: #e1eeeb;
+	color: #477673;
+	text-align: center;
+}
+
 // Place all the styles related to the simple_pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
