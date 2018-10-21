@@ -1,3 +1,16 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+p#title {
+	font-family: "Century Gothic", Arial, Lucia, Tahoma, Verdana, sans serif;
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+p#text {
+	margin-top: 16px;
+	font-family: Garamond, "Bell MT", "Bodoni MT", "Times New Roman", Georgia, serif;
+	font-size: 1.3em;
+	font-weight: 100;
+}
