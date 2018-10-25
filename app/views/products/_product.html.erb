@@ -1,0 +1,8 @@
+ <div class="col-sm">
+   <p id="title"><%= product.name %></p>
+   <%= image_tag(product.thumbnail, class: "img-fluid") %>
+   <p id="text"><%= product.description %></p>
+   <%= audio_tag(product.audio, controls: true) %>
+   <hr>
+   <strong>&dollar;&nbsp;<%= product.price %></strong>
+ </div><!-- end column -->
