@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_24_183145) do
+ActiveRecord::Schema.define(version: 2018_10_29_074352) do
 
   create_table "orders", force: :cascade do |t|
-    t.integer "used_id"
+    t.integer "user_id"
     t.integer "product_id"
     t.float "total"
     t.index ["product_id"], name: "index_orders_on_product_id"
-    t.index ["used_id"], name: "index_orders_on_used_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "products", force: :cascade do |t|
