@@ -1,6 +1,8 @@
  <div class="col-sm">
    <p id="title"><%= product.name %></p>
-   <%= image_tag(product.thumbnail, class: "img-fluid") %>
+   <%= link_to product do %>
+     <%= image_tag(product.thumbnail, class: "img-fluid") %>
+   <% end %>
    <p id="text"><%= product.description %></p>
    <%= audio_tag(product.audio, controls: true) %>
    <hr>
