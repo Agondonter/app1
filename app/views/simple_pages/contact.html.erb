@@ -1,5 +1,24 @@
-<h1>Contact</h1>
-<p>For inquiries &amp; further information feel free to contact us at:
-<br>
-<a href="#">healingsound@kaproductions.com</a>
-</p>
+<div class="container">
+  <h1>Contact us</h1>
+  <%= flash[:notice] %>
+  <%= form_with(url: '/simple_pages/thank_you', method: 'post', local: true) do |form| %>
+  
+	<div class="form-group">
+	  <%= form.label :name %>
+	  <%= form.text_field :name, class: "form-control", placeholder: 'Enter name' %>
+	</div>
+	
+	<div class="form-group">
+	  <%= form.label :email %>
+	  <%= form.text_field :email, class: 'form-control', placeholder: 'Enter email' %>
+	</div>
+	
+	<div class="form-group">
+	  <%= form.label :message %>
+	  <%= form.text_field :message, class: 'form-control', placeholder: 'Enter message', rows: 5 %>
+	</div>
+ 
+
+  <%= form.submit 'Send', class: 'form_label btn btn-outline-success my-2 my-sm-0' %>
+  <% end %>
+</div>
