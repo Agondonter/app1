@@ -5,9 +5,9 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     if Rails.env.development?
-      asdad
+      Product.where('name LIKE ?', '%#{search_term}%')
     else
-      sdfsf
+      Product.where('name ilike ?', '%#{search_term}%')
     end
 
     if params[:q]
