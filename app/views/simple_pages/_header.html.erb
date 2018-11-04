@@ -5,11 +5,22 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav mr-auto">
       <li class="nav-item nav-link"><%= link_to "Home", root_path %></li>
       <li class="nav-item nav-link"><%= link_to "About", simple_pages_about_path %></li>
       <li class="nav-item nav-link"><%= link_to "Contact", simple_pages_contact_path %></li>
       <li class="nav-item nav-link"><%= link_to "Products", products_path %></li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <% if user_signed_in? %>
+      <li class="nav-item">
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'nav-link' %>
+      </li>
+      <% else %>
+      <li class="nav-item">
+        <%= link_to "Login", new_user_session_path, class: 'nav-link' %>
+      </li>
+      <% end %>
     </ul>
     <div>
       <%= form_with(url: products_path, method: 'get', local: true, class: 'form-inline my-2 my-lg-0') do |form| %>
