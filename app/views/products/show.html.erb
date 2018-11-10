@@ -1,29 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-lg-6 column-left">
+      <%= image_tag(@product.thumbnail, class: "img-fluid") %>
+      <%= audio_tag(@product.audio, class: "w-100", controls: true) %>
+      <%= link_to 'Edit', edit_product_path(@product) %> |
+      <%= link_to 'Back', products_path %>
+    </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
-
-<p>
-  <strong>Thumbnail:</strong>
-  <%= @product.thumbnail %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-</p>
-
-<p>
-  <strong>Audio:</strong>
-  <%= @product.audio %>
-</p>
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+    <div class="col-sm-12 col-lg-6">
+      <p class="product-title"><%= @product.name %></h2>
+      <p class="product-description"><%= @product.description %></p>
+      <p class="product-price"><%= number_to_currency(@product.price, :unit => "€") %></p>
+      <p>Customer reviews</p>
+      <%= @product.highest_rating_comment %>
+      <%= @product.lowest_rating_comment %>  
+    </div>
+  </div><!-- end row -->
+</div><!-- end container -->

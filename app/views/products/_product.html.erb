@@ -1,10 +1,10 @@
  <div class="col-sm">
-   <p id="title"><%= product.name %></p>
+   <p class="product-title"><%= product.name %></p>
    <%= link_to product do %>
      <%= image_tag(product.thumbnail, class: "img-fluid") %>
    <% end %>
-   <p id="text"><%= product.description %></p>
+   <p class="product-description"><%= product.description %></p>
    <%= audio_tag(product.audio, controls: true) %>
    <hr>
-   <strong>&dollar;&nbsp;<%= product.price %></strong>
+   <strong><%= number_to_currency(product.price, :unit => "€") %></strong>
  </div><!-- end column -->
