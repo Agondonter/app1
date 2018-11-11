@@ -14,8 +14,8 @@
       <p class="product-description"><%= @product.description %></p>
       <p class="product-price"><%= number_to_currency(@product.price, :unit => "€") %></p>
       <p>Customer reviews</p>
-      <%= @product.highest_rating_comment %>
-      <%= @product.lowest_rating_comment %>  
+      <p><%= @product.highest_rating_comment.body %></p>
+      <p><%= @product.lowest_rating_comment.body %></p>
     </div>
   </div><!-- end row -->
 </div><!-- end container -->
