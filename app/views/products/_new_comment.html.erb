@@ -1,0 +1,16 @@
+<% if signed_in? %>
+  <p class="product-title">Add a review:</p>
+  <%= form_for([@product, @product.comments.build]) do |f| %>
+
+    <div class="form-group">
+      <%= f.text_area :body, placeholder: "Please write your review here...", class: "form-control"  %>
+    </div>
+
+    <div class="rating">
+    </div>
+
+    <div class="form-group">
+      <%= f.submit 'Submit', class: 'btn btn-outline-success my-2 my-sm-0' %>
+    </div>
+  <% end %>
+<% end %>
