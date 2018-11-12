@@ -62,3 +62,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 # Authorization
 gem 'cancancan', '~> 1.10'
+# Gemfile for Rails 3+, Sintara or Merb
+gem 'will_paginate', '~> 3.1.1'
