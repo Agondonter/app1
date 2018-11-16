@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: "user_registrations"}
   resources :users
+  # Renders comments a nested resource of products
   resources :products do
     resources :comments
   end
