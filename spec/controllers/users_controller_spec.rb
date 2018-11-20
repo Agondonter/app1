@@ -27,10 +27,10 @@ describe UsersController,type: :controller do
       before do
       	sign_in user
       end
-        it 'redirects user1 to login' do
+        it 'redirects user1 to homepage' do
           get :show, params: { id: user2.id }
           expect(response).to have_http_status(302)
-          expect(response).to redirect_to(new_user_session_path)
+          expect(response).to redirect_to(root_path)
         end
     end
   end
