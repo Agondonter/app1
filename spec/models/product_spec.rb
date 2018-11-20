@@ -2,13 +2,15 @@ require 'rails_helper'
 
 describe Product do 
   context "when the product has comments" do
-    let(:product) { Product.create!(name: "Piano Collection I") }
-    let(:user) { User.create!(email: "example@example.com", password: "example") }
-    
+  	before do
+     let(:product) { Product.create!(name: "Piano Collection I") }
+     @user1 = FactoryBot.create(:user)
+    end
+
     before do
-     product.comments.create!(rating: 1, user: user, body: "Terrible!")
-     product.comments.create!(rating: 5, user: user, body: "Astonishing!")
-     product.comments.create!(rating: 3, user: user, body: "Nice!")
+     product.comments.create!(rating: 1, user: @user1, body: "Terrible!")
+     product.comments.create!(rating: 5, user: @user1, body: "Astonishing!")
+     product.comments.create!(rating: 3, user: @user1, body: "Nice!")
     end
       
       it "returns the average rating of all comments" do
@@ -20,4 +22,3 @@ describe Product do
       end
   end
 end
-
