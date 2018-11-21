@@ -1,6 +1,6 @@
 class PaymentsController < ApplicationController
   before_action: authenticate_user!
-  
+
   def create
     @product = Product.find(params[:product_id])
     @user = current_user
@@ -21,7 +21,7 @@ class PaymentsController < ApplicationController
       		user_id: @user.id,
       		total: @product.price
       	)
-      	UserMailer.confirmation(@user).deliver_now
+      	UserMailer.confirmation(@user, @product).deliver_now
       end
 
     rescue Stripe::CardError => e
