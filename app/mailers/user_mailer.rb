@@ -2,10 +2,10 @@ class UserMailer < ApplicationMailer
   default from: 'alexdikappa@gmail.com'
 
   def contact_form(email, name, message)
-  @message = message
-    mail(from: email,
-    	 to: 'alexdikappa@gmail.com',
-    	 subject: "A new contact form message from #{name}")
+    @message = message
+      mail(from: email,
+      	 to: 'alexdikappa@gmail.com',
+      	 subject: "A new contact form message from #{name}")
   end
 
   def welcome(user)
@@ -15,9 +15,16 @@ class UserMailer < ApplicationMailer
   end
 
   def thank_you
-	@name = params[:name]
-	@email = params[:email]
-	@message = params[:message]
-	UserMailer.contact_form(@email, @name, @message).deliver_now
+  	@name = params[:name]
+  	@email = params[:email]
+  	@message = params[:message]
+  	UserMailer.contact_form(@email, @name, @message).deliver_now
+  end
+
+  def confirmation(user, product)
+    @appname = "healingsound"
+    @product = product
+    mail(to: user.email,
+         subject: "Order confirmation for your purchase at #{@appname}.")
   end
 end

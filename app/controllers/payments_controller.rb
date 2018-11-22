@@ -1,5 +1,5 @@
 class PaymentsController < ApplicationController
-  before_action: authenticate_user!
+  before_action :authenticate_user!
 
   def create
     @product = Product.find(params[:product_id])
@@ -9,9 +9,9 @@ class PaymentsController < ApplicationController
     begin
       charge = Stripe::Charge.create(
       	amount: (@product.price*100).to_i, # amount in cents, again
-      	currency: "eur"
+      	currency: "eur",
       	source: token,
-      	description: params[:stripeEmail]
+      	description: params[:stripeEmail],
       	receipt_email: @user.email
       )
 
