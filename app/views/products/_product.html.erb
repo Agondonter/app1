@@ -1,10 +1,12 @@
- <div class="col-sm">
-   <p class="product-title"><%= product.name %></p>
-   <%= link_to product do %>
-     <%= image_tag(product.thumbnail, class: "img-fluid") %>
-   <% end %>
-   <p class="product-description"><%= product.description %></p>
-   <%= audio_tag(product.audio, controls: true) %>
-   <hr>
-   <strong><%= number_to_currency(product.price, :unit => "€") %></strong>
- </div><!-- end column -->
+<% cache product do %>
+  <div class="col-sm">
+    <p class="product-title"><%= product.name %></p>
+    <%= link_to product do %>
+      <%= image_tag(product.thumbnail, class: "img-fluid") %>
+    <% end %>
+    <p class="product-description"><%= product.description %></p>
+    <%= audio_tag(product.audio, controls: true) %>
+    <hr>
+    <strong><%= number_to_currency(product.price, :unit => "€") %></strong>
+  </div><!-- end column -->
+<% end %>
