@@ -20,6 +20,7 @@
         <%= hidden_field_tag(:product_id, @product.id) %>
       <% end %>
       <%= render 'new_comment' %>
+      <div class="alert alert-info" style="display:none" role="alert">A new comment was posted</div>
       <%= render 'comments' %>
       <%= will_paginate @comments %>
      </div>
