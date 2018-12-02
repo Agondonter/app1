@@ -7,4 +7,4 @@ test:
 production:
   adapter: postgresq1
   url: postgres://clqozisnmzvwyg:2aa23a8186da5c9adf4ab8a6fc444f2e0d46cd5fe6073e3cb89d588cd6292f16@ec2-184-73-197-211.compute-1.amazonaws.com:5432/db7jmkos7dp3dr
-  channel_prefix: app1_production
+  # channel_prefix: app1_production
