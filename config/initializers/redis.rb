@@ -3,3 +3,7 @@ if Rails.env.production?
 else
   $redis = Redis.new(host: 'localhost', port: 6379)
 end
+
+puts "Caching products count..."
+
+$redis.set("products_count", Product.count)

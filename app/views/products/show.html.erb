@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row">
+  <div data-product-id="<%= @product.id %>" class="row">
     <div class="col-sm-12 col-lg-6 column-left">
       <%= image_tag(@product.thumbnail, class: "img-fluid img-zoom", data_zoom_image: "@product.thumbnail") %>
       <%= audio_tag(@product.audio, class: "w-100", controls: true) %>

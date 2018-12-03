@@ -10,6 +10,8 @@ class ProductsController < ApplicationController
     else
     @products = Product.all
     end
+
+    @products_count = $redis.get('products_count')
   end
 
   # GET /products/1
@@ -34,6 +36,7 @@ class ProductsController < ApplicationController
     
     respond_to do |format|
       if @product.save
+        $redis.set("products_count", Product.count)
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
       else
@@ -61,6 +64,7 @@ class ProductsController < ApplicationController
   # DELETE /products/1.json
   def destroy
     @product.destroy
+    $redis.set("products_count", Product.count)
     respond_to do |format|
       format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
       format.json { head :no_content }
