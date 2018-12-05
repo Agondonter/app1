@@ -13,6 +13,15 @@ describe ProductsController, type: :controller do
       expect(response).to be_ok
       expect(response).to render_template('index')
     end
+    
+    context 'search query' do
+      let(:product) { Product.create!(name: "Track 1", description: "Example", price: "399") }
+        it 'renders the index template with a query' do
+        get :index, params: { q: "Track 1" }
+        expect(response).to be_ok
+        expect(assigns(:products)).to eq([product])
+      end
+    end
   end
 
   describe 'GET #show' do
